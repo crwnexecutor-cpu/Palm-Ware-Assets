@@ -7,6 +7,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
+    target: 'esnext',
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
