@@ -925,7 +925,14 @@
             </div>
             <iframe id="browser-iframe" src="" class="w-full h-full border-none" allowfullscreen></iframe>
         </section>
-      </div>
+    </div>
+     <section id="view-apps" class="view p-8">
+    <div class="max-w-4xl mx-auto w-full py-12 flex flex-col items-center justify-center">
+        <h1 class="text-5xl font-bold text-main mb-4">Apps</h1>
+        <p class="text-secondary">This is your apps page</p>
+    </div>
+</section>
+</div>    
 
     <!-- Patch Notes Modal -->
     <div id="patch-notes-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
@@ -1054,15 +1061,15 @@
                 textSecondary: '#94a3b8',
                 background: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=1920'
             },
-          femboy: {
-               name: 'Anime',
-               primary: '#f5f3ff',       
-               secondary: '#ede9fe',     
-               accent: '#c084fc',         
-               text: '#1e1b4b',           
-               textSecondary: '#4338ca',  
-               overlay: 'rgba(192, 132, 252, 0.25)',
-               background: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1920'
+            femboy: {
+                name: 'Femboy',
+                primary: '#fce7f3',
+                secondary: '#fdf2f8',
+                accent: '#fbcfe8',
+                text: '#4a044e',
+                textSecondary: '#701a75',
+                overlay: 'rgba(255, 255, 255, 0.4)',
+                background: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1920'
             },
             minecraft: {
                 name: 'Minecraft',
@@ -1969,7 +1976,6 @@
             'games': document.getElementById('view-games'),
             'play': document.getElementById('view-play'),
             'browser': document.getElementById('view-browser')
-            'apps': document.getElementById('view-apps')
         };
 
         const header = document.getElementById('main-header');
@@ -2009,8 +2015,6 @@
                 views.browser.classList.add('active');
                 header.style.display = 'none';
                 renderBrowser();
-            } else if (route === 'apps') {
-                views.apps.classList.add('active');
             } else {
                 views.home.classList.add('active');
             }
