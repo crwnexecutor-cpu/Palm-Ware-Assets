@@ -932,26 +932,25 @@
 
         <h1 class="text-3xl font-bold text-main mb-6">Apps</h1>
 
-        <!-- App Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-6">
+        <!-- App Grid (SMALLER) -->
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 mb-6">
 
             <!-- Roblox -->
-            <div onclick="openRoblox()" 
-                 class="bg-secondary border border-accent rounded-2xl p-6 aspect-square flex items-center justify-center text-center cursor-pointer hover:scale-105 transition-all active:scale-95">
-                <span class="text-lg font-bold text-main">Roblox</span>
+            <div onclick="this.closest('#view-apps').querySelector('#roblox-frame').style.display='block'"
+                 class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center text-center cursor-pointer hover:scale-105 transition-all active:scale-95">
+                <span class="text-sm font-bold text-main">Roblox</span>
             </div>
 
             <!-- Placeholder -->
-            <div class="bg-secondary border border-accent rounded-2xl p-6 aspect-square flex items-center justify-center text-center opacity-60">
-                <span class="text-lg font-bold text-main">More</span>
+            <div class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center text-center opacity-60">
+                <span class="text-sm font-bold text-main">More</span>
             </div>
 
         </div>
 
         <!-- Roblox Player -->
-        <div id="roblox-frame" style="display:none;" class="w-full h-[75vh] bg-black rounded-xl overflow-hidden border border-accent">
+        <div id="roblox-frame" style="display:none;" class="w-full h-[70vh] bg-black rounded-xl overflow-hidden border border-accent">
             <iframe
-                id="roblox-iframe"
                 src="https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly9ub3cuZ2cvcGxheS9yb2Jsb3gtY29ycG9yYXRpb24vNTM0OS9yb2Jsb3g%3D&target=aHR0cHM6Ly8xMzIuaXAubm93Z2cuZnVuL2FwcHMvYS8xOTkwMC9iLmh0bWw%3D"
                 class="w-full h-full border-none"
                 allowfullscreen>
