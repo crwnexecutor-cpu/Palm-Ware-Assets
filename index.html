@@ -932,25 +932,26 @@
 
         <h1 class="text-3xl font-bold text-main mb-6">Apps</h1>
 
-        <!-- App buttons -->
-        <div class="grid grid-cols-2 gap-4 mb-6">
+        <!-- App Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-6">
 
-            <!-- Roblox button -->
-            <div onclick="document.getElementById('roblox-frame').style.display='block'"
-                 class="bg-secondary border border-accent rounded-xl p-4 cursor-pointer hover:scale-105 transition text-center">
-                <h2 class="text-lg font-bold text-main">Roblox</h2>
+            <!-- Roblox -->
+            <div onclick="openRoblox()" 
+                 class="bg-secondary border border-accent rounded-2xl p-6 aspect-square flex items-center justify-center text-center cursor-pointer hover:scale-105 transition-all active:scale-95">
+                <span class="text-lg font-bold text-main">Roblox</span>
             </div>
 
             <!-- Placeholder -->
-            <div class="bg-secondary border border-accent rounded-xl p-4 text-center opacity-60">
-                <h2 class="text-lg font-bold text-main">More Soon</h2>
+            <div class="bg-secondary border border-accent rounded-2xl p-6 aspect-square flex items-center justify-center text-center opacity-60">
+                <span class="text-lg font-bold text-main">More</span>
             </div>
 
         </div>
 
-        <!-- Roblox iframe (hidden until clicked) -->
+        <!-- Roblox Player -->
         <div id="roblox-frame" style="display:none;" class="w-full h-[75vh] bg-black rounded-xl overflow-hidden border border-accent">
             <iframe
+                id="roblox-iframe"
                 src="https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly9ub3cuZ2cvcGxheS9yb2Jsb3gtY29ycG9yYXRpb24vNTM0OS9yb2Jsb3g%3D&target=aHR0cHM6Ly8xMzIuaXAubm93Z2cuZnVuL2FwcHMvYS8xOTkwMC9iLmh0bWw%3D"
                 class="w-full h-full border-none"
                 allowfullscreen>
@@ -959,26 +960,6 @@
 
     </div>
 </section>
-
-        <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div onclick="openApp('Roblox')" class="bg-secondary border border-accent rounded-2xl p-6 cursor-pointer hover:scale-105 transition-all active:scale-95">
-                <div class="flex items-center gap-3 mb-3">
-                    <i data-lucide="blocks" class="w-6 h-6 text-main"></i>
-                    <h2 class="text-2xl font-bold text-main">Roblox</h2>
-                </div>
-                <p class="text-secondary">Launch Roblox in the app player.</p>
-            </div>
-
-            <div class="bg-secondary border border-accent rounded-2xl p-6 opacity-60">
-                <div class="flex items-center gap-3 mb-3">
-                    <i data-lucide="app-window" class="w-6 h-6 text-main"></i>
-                    <h2 class="text-2xl font-bold text-main">More Soon</h2>
-                </div>
-                <p class="text-secondary">Add more apps here later.</p>
-            </div>
-        </div>
-    </div>
-</section>   
 
     <!-- Patch Notes Modal -->
     <div id="patch-notes-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
