@@ -956,22 +956,6 @@
     </div>
 </section>   
 
-        <section id="view-app" class="view p-4 sm:p-8 h-screen overflow-hidden">
-    <div class="flex items-center justify-between mb-6 bg-secondary/50 p-4 rounded-xl border border-accent backdrop-blur-sm">
-        <div class="flex items-center gap-4">
-            <a href="#/apps" class="p-2 rounded-lg bg-accent/50 hover:bg-accent text-secondary hover:text-main transition-all active:scale-95">
-                <i data-lucide="arrow-left" class="w-5 h-5"></i>
-            </a>
-            <div class="h-6 w-px bg-accent"></div>
-            <h2 id="app-title" class="text-lg font-bold text-main tracking-tight">App</h2>
-        </div>
-    </div>
-
-    <div class="w-full h-[85vh] bg-black rounded-2xl overflow-hidden border border-accent">
-        <iframe id="app-iframe" src="https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly9ub3cuZ2cvcGxheS9yb2Jsb3gtY29ycG9yYXRpb24vNTM0OS9yb2Jsb3g%3D&target=aHR0cHM6Ly8xMzIuaXAubm93Z2cuZnVuL2FwcHMvYS8xOTkwMC9iLmh0bWw%3D" class="w-full h-full border-none" allowfullscreen></iframe>
-    </div>
-</section>
-
     <!-- Patch Notes Modal -->
     <div id="patch-notes-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
         <div class="bg-secondary border border-accent w-full max-w-md rounded-2xl shadow-2xl overflow-hidden">
@@ -2014,8 +1998,7 @@
             'games': document.getElementById('view-games'),
             'play': document.getElementById('view-play'),
             'browser': document.getElementById('view-browser'),
-            'apps': document.getElementById('view-apps'),
-            'app': document.getElementById('view-app')
+            'apps': document.getElementById('view-apps')
         };
 
         const header = document.getElementById('main-header');
@@ -2057,8 +2040,6 @@
                 renderBrowser();
             } else if (route === 'apps') {
                 views.apps.classList.add('active');
-            } else if (route === 'app') {   
-                views.app.classList.add('active');    
             } else {
                 views.home.classList.add('active');
             }
