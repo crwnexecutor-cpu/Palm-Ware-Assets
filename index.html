@@ -932,35 +932,74 @@
 
         <h1 class="text-3xl font-bold text-main mb-6">Apps</h1>
 
-        <!-- App Grid (SMALLER ICONS) -->
-        <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-4">
+        <!-- App Grid -->
+        <div id="app-grid" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-4">
 
             <!-- Roblox -->
-            <a href="https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly9ub3cuZ2cvcGxheS9yb2Jsb3gtY29ycG9yYXRpb24vNTM0OS9yb2Jsb3g%3D&target=aHR0cHM6Ly8xMzIuaXAubm93Z2cuZnVuL2FwcHMvYS8xOTkwMC9iLmh0bWw%3D" target="_blank"
-               class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all active:scale-95">
-
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.svg" 
-                     class="w-8 h-8 object-contain" alt="Roblox">
-
-            </a>
+            <div onclick="openApp('roblox')" 
+                 class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png"
+                     class="w-8 h-8" alt="Roblox">
+            </div>
 
             <!-- TikTok -->
-            <a href="https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D" target="_blank"
-               class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all active:scale-95">
-
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" 
-                     class="w-8 h-8 object-contain" alt="TikTok">
-
-            </a>
-
-            <!-- Placeholder -->
-            <div class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center opacity-50">
-                <span class="text-xs text-secondary">+</span>
+            <div onclick="openApp('tiktok')" 
+                 class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"
+                     class="w-8 h-8" alt="TikTok">
             </div>
 
         </div>
 
+        <!-- FULLSCREEN PLAYER -->
+        <div id="app-player" style="display:none;" class="fixed inset-0 bg-black z-50 flex flex-col">
+
+            <!-- top bar -->
+            <div class="flex items-center justify-between p-4 bg-primary border-b border-accent">
+                <button onclick="closeApp()" class="text-main font-bold">← Back</button>
+                <span id="app-title" class="text-main font-semibold">App</span>
+                <div></div>
+            </div>
+
+            <!-- iframe -->
+            <iframe id="app-frame"
+                class="w-full h-full border-none"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
     </div>
+
+    <!-- INLINE SCRIPT (so you don't need to touch your JS file) -->
+    <script>
+        function openApp(app) {
+            const frame = document.getElementById('app-frame');
+            const player = document.getElementById('app-player');
+            const title = document.getElementById('app-title');
+
+            if (app === 'roblox') {
+                frame.src = "https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly9ub3cuZ2cvcGxheS9yb2Jsb3gtY29ycG9yYXRpb24vNTM0OS9yb2Jsb3g%3D&target=aHR0cHM6Ly8xMzIuaXAubm93Z2cuZnVuL2FwcHMvYS8xOTkwMC9iLmh0bWw%3D";
+                title.textContent = "Roblox";
+            }
+
+            if (app === 'tiktok') {
+                frame.src = "https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D";
+                title.textContent = "TikTok";
+            }
+
+            player.style.display = "flex";
+        }
+
+        function closeApp() {
+            const frame = document.getElementById('app-frame');
+            const player = document.getElementById('app-player');
+
+            frame.src = "";
+            player.style.display = "none";
+        }
+    </script>
+
 </section>
 
     <!-- Patch Notes Modal -->
