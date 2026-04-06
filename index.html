@@ -54,21 +54,20 @@
     background: #0b0f1a;
 }
 
-/* cards */
 .card {
     position: relative;
     z-index: 2;
-    padding: 20px;
+    padding: 24px;
     border-radius: 17px;
     background: #0f172a;
 }
 
-/* basic */
+/* BASIC */
 .basic {
     background: linear-gradient(180deg, #0f172a, #0b0f1a);
 }
 
-/* galaxy plus */
+/* PLUS (GALAXY) */
 .plus {
     background:
         radial-gradient(circle at 20% 30%, rgba(139,92,246,0.25), transparent 40%),
@@ -77,7 +76,7 @@
         linear-gradient(180deg, #070816, #0b0f1a);
 }
 
-/* stars */
+/* STARS */
 .plus::before {
     content: "";
     position: absolute;
@@ -90,18 +89,18 @@
 
 /* text */
 .title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
 }
 
 .list {
-    font-size: 13px;
+    font-size: 14px;
     color: #cbd5e1;
 }
 
 /* badge */
 .badge {
-    font-size: 10px;
+    font-size: 11px;
     padding: 3px 8px;
     border-radius: 999px;
     background: rgba(236,72,153,0.2);
@@ -110,9 +109,10 @@
 
 /* button */
 .discord-btn {
-    padding: 10px 20px;
+    margin-top: 32px;
+    padding: 12px 24px;
     border-radius: 999px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     color: white;
     background: linear-gradient(90deg,#6366f1,#8b5cf6);
@@ -123,11 +123,14 @@
 .discord-btn:hover {
     transform: scale(1.05);
 }
+
 /* animation */
 @keyframes rgbMove {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
+}
+
 }
         body { 
             font-family: var(--font-sans); 
