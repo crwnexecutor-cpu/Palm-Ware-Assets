@@ -938,15 +938,15 @@
             <!-- Roblox -->
             <div onclick="openApp('roblox')" 
                  class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png"
-                     class="w-8 h-8" alt="Roblox">
+                <img src="https://www.steamgriddb.com/icon/38417/download"
+                     class="w-14 h-14 object-contain" alt="Roblox">
             </div>
 
             <!-- TikTok -->
             <div onclick="openApp('tiktok')" 
                  class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
-                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"
-                     class="w-8 h-8" alt="TikTok">
+                <img src="https://toppng.com/uploads/preview/tik-tok-icon-circle-11609379404aavrbp7kqt.png"
+                     class="w-14 h-14 object-contain" alt="TikTok">
             </div>
 
         </div>
@@ -971,7 +971,7 @@
 
     </div>
 
-    <!-- INLINE SCRIPT (so you don't need to touch your JS file) -->
+    <!-- INLINE SCRIPT -->
     <script>
         function openApp(app) {
             const frame = document.getElementById('app-frame');
@@ -992,11 +992,8 @@
         }
 
         function closeApp() {
-            const frame = document.getElementById('app-frame');
-            const player = document.getElementById('app-player');
-
-            frame.src = "";
-            player.style.display = "none";
+            document.getElementById('app-frame').src = "";
+            document.getElementById('app-player').style.display = "none";
         }
     </script>
 
