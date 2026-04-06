@@ -929,12 +929,36 @@
       <!-- Apps View -->
 <section id="view-apps" class="view p-8">
     <div class="max-w-6xl mx-auto w-full py-12">
-        <div class="flex items-center justify-between mb-8">
-            <div>
-                <h1 class="text-3xl font-bold text-main mb-2">Apps</h1>
-                <p class="text-secondary">Open apps inside Palm-Ware.</p>
+
+        <h1 class="text-3xl font-bold text-main mb-6">Apps</h1>
+
+        <!-- App buttons -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+
+            <!-- Roblox button -->
+            <div onclick="document.getElementById('roblox-frame').style.display='block'"
+                 class="bg-secondary border border-accent rounded-xl p-4 cursor-pointer hover:scale-105 transition text-center">
+                <h2 class="text-lg font-bold text-main">Roblox</h2>
             </div>
+
+            <!-- Placeholder -->
+            <div class="bg-secondary border border-accent rounded-xl p-4 text-center opacity-60">
+                <h2 class="text-lg font-bold text-main">More Soon</h2>
+            </div>
+
         </div>
+
+        <!-- Roblox iframe (hidden until clicked) -->
+        <div id="roblox-frame" style="display:none;" class="w-full h-[75vh] bg-black rounded-xl overflow-hidden border border-accent">
+            <iframe
+                src="https://d1w7oj52hl4x53.cloudfront.net/search?query=aHR0cHM6Ly9ub3cuZ2cvcGxheS9yb2Jsb3gtY29ycG9yYXRpb24vNTM0OS9yb2Jsb3g%3D&target=aHR0cHM6Ly8xMzIuaXAubm93Z2cuZnVuL2FwcHMvYS8xOTkwMC9iLmh0bWw%3D"
+                class="w-full h-full border-none"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+</section>
 
         <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div onclick="openApp('Roblox')" class="bg-secondary border border-accent rounded-2xl p-6 cursor-pointer hover:scale-105 transition-all active:scale-95">
