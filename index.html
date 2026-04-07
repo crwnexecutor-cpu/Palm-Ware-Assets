@@ -949,6 +949,13 @@
                      class="w-14 h-14 object-contain" alt="TikTok">
             </div>
 
+            <!-- YouTube -->
+            <div onclick="openApp('youtube')" 
+                 class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
+                <img src="images/youtube.png"
+                      class="w-14 h-14 object-contain" alt="YouTube">
+             </div>
+
         </div>
 
         <!-- FULLSCREEN PLAYER -->
@@ -986,6 +993,11 @@
             if (app === 'tiktok') {
                 frame.src = "https://storage.googleapis.com/canvas-lms/portal/k12/111704322b6343570e14076c2c30070c16085e213734431d01131c2d2a3c";
                 title.textContent = "TikTok";
+            }
+
+            if (app === 'youtube') {
+                frame.src = "https://storage.googleapis.com/canvas-lms/portal/k12/111704322b6343570e14076c2136190c0c01156c3b360157";
+                 title.textContent = "YouTube";
             }
 
             player.style.display = "flex";
