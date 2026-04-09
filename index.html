@@ -915,22 +915,15 @@
         </section>
 
         
-        <section id="view-browser" class="view h-screen w-screen overflow-hidden relative bg-black flex items-center justify-center">
-
-    <div class="absolute top-4 left-4 z-50">
-        <a href="#/" class="flex items-center gap-2 px-4 py-2 bg-black/50 hover:bg-black backdrop-blur-md border border-accent text-main rounded-lg transition-all active:scale-95 shadow-xl group">
-            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
-            <span class="text-sm font-bold">Back to Home</span>
-        </a>
-    </div>
-
-   
-    <button onclick="renderBrowser()" 
-        class="px-6 py-3 bg-main text-primary rounded-xl font-semibold hover:scale-105 transition-all">
-        Open Browser
-    </button>
-
-</section>
+        <section id="view-browser" class="view h-screen w-screen overflow-hidden relative bg-black">
+            <div class="absolute top-4 left-4 z-50">
+                <a href="#/" class="flex items-center gap-2 px-4 py-2 bg-black/50 hover:bg-black backdrop-blur-md border border-accent text-main rounded-lg transition-all active:scale-95 shadow-xl group">
+                    <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
+                    <span class="text-sm font-bold">Back to Home</span>
+                </a>
+            </div>
+            <iframe id="browser-iframe" src="" class="w-full h-full border-none" allowfullscreen></iframe>
+        </section>
 
       
 <section id="view-apps" class="view p-8">
@@ -938,48 +931,82 @@
 
         <h1 class="text-3xl font-bold text-main mb-6">Apps</h1>
 
+       
         <div id="app-grid" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-4">
 
+          
             <div onclick="openApp('Roblox')" 
                  class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
                 <img src="https://preview.redd.it/roblox-modern-icon-made-for-mac-v0-z69olzdgmstb1.png?width=512&format=png&auto=webp&s=4dddf00582c4e0797d6d49137bdc2375ac95c13c"
-                     class="w-14 h-14 object-contain">
+                     class="w-14 h-14 object-contain" alt="Roblox">
             </div>
 
             <div onclick="openApp('tiktok')" 
                  class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
                 <img src="https://tse2.mm.bing.net/th/id/OIP.VBq66J60NClWDev8SdDc6gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
-                     class="w-14 h-14 object-contain">
+                     class="w-14 h-14 object-contain" alt="TikTok">
             </div>
 
             <div onclick="openApp('youtube')" 
                  class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
                 <img src="https://www.freepnglogos.com/uploads/512x512-logo/512x512-transparent-logo-youtube-icon-transparent-youtube-images-vector-1.png"
-                     class="w-14 h-14 object-contain">
+                      class="w-14 h-14 object-contain" alt="YouTube">
+             </div>
+
+        </div>
+
+      
+        <div id="app-player" style="display:none;" class="fixed inset-0 bg-black z-50 flex flex-col">
+
+            
+            <div class="flex items-center justify-between p-4 bg-primary border-b border-accent">
+                <button onclick="closeApp()" class="text-main font-bold">← Back</button>
+                <span id="app-title" class="text-main font-semibold">App</span>
+                <div></div>
             </div>
+
+          
+            <iframe id="app-frame"
+                class="w-full h-full border-none"
+                allowfullscreen>
+            </iframe>
 
         </div>
 
     </div>
+
+    
+    <script>
+        function openApp(app) {
+            const frame = document.getElementById('app-frame');
+            const player = document.getElementById('app-player');
+            const title = document.getElementById('app-title');
+
+            if (app === 'Roblox') {
+                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=bm93Z2cuZnVu";
+                title.textContent = "Roblox";
+            }
+
+            if (app === 'tiktok') {
+                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D";
+                title.textContent = "TikTok";
+            }
+
+            if (app === 'youtube') {
+                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly95b3V0dWJlLmNvbQ%3D%3D&v=%221%22";
+                 title.textContent = "YouTube";
+            }
+
+            player.style.display = "flex";
+        }
+
+        function closeApp() {
+            document.getElementById('app-frame').src = "";
+            document.getElementById('app-player').style.display = "none";
+        }
+    </script>
+
 </section>
-
-<script>
-function openApp(app) {
-
-    if (app === 'Roblox') {
-        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=bm93Z2cuZnVu", "_blank");
-    }
-
-    if (app === 'tiktok') {
-        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D", "_blank");
-    }
-
-    if (app === 'youtube') {
-        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly95b3V0dWJlLmNvbQ%3D%3D&v=%221%22", "_blank");
-    }
-
-}
-</script>
 
     
     <div id="patch-notes-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
@@ -2338,9 +2365,13 @@ function openApp(app) {
             }
         }
 
-       function renderBrowser() {
-    window.open('https://d2w1kmawdyj1d6.cloudfront.net/search?query=ZHVja2R1Y2tnby5jb20%3D', '_blank');
-         }
+        function renderBrowser() {
+            const iframe = document.getElementById('browser-iframe');
+            const url = 'https://d2w1kmawdyj1d6.cloudfront.net';
+            if (iframe.src !== url) {
+                iframe.src = url;
+            }
+        }
 
         // 
 
