@@ -954,57 +954,29 @@
              </div>
 
         </div>
+  </div>
+</section> 
 
-      
-        <div id="app-player" style="display:none;" class="fixed inset-0 bg-black z-50 flex flex-col">
+        
+<script>
+function openApp(app) {
 
-            
-            <div class="flex items-center justify-between p-4 bg-primary border-b border-accent">
-                <button onclick="closeApp()" class="text-main font-bold">← Back</button>
-                <span id="app-title" class="text-main font-semibold">App</span>
-                <div></div>
-            </div>
+    if (app === 'Roblox') {
+        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=bm93Z2cuZnVu", "_blank");
+    }
 
-          
-            <iframe id="app-frame"
-                class="w-full h-full border-none"
-                allowfullscreen>
-            </iframe>
+    if (app === 'tiktok') {
+        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D", "_blank");
+    }
 
-        </div>
+    if (app === 'youtube') {
+        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly95b3V0dWJlLmNvbQ%3D%3D&v=%221%22", "_blank");
+    }
 
-    </div>
+}
+</script>
 
-    
-    <script>
-        function openApp(app) {
-            const frame = document.getElementById('app-frame');
-            const player = document.getElementById('app-player');
-            const title = document.getElementById('app-title');
-
-            if (app === 'Roblox') {
-                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=bm93Z2cuZnVu";
-                title.textContent = "Roblox";
-            }
-
-            if (app === 'tiktok') {
-                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D";
-                title.textContent = "TikTok";
-            }
-
-            if (app === 'youtube') {
-                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly95b3V0dWJlLmNvbQ%3D%3D&v=%221%22";
-                 title.textContent = "YouTube";
-            }
-
-            player.style.display = "flex";
-        }
-
-        function closeApp() {
-            document.getElementById('app-frame').src = "";
-            document.getElementById('app-player').style.display = "none";
-        }
-    </script>
+        
 
 </section>
 
@@ -2366,11 +2338,9 @@
         }
 
         function renderBrowser() {
-            const iframe = document.getElementById('browser-iframe');
-            const url = 'https://d2w1kmawdyj1d6.cloudfront.net';
-            if (iframe.src !== url) {
-                iframe.src = url;
-            }
+        const url = 'https://d2w1kmawdyj1d6.cloudfront.net';
+       window.open(url, '_blank');
+  }
         }
 
         // 
