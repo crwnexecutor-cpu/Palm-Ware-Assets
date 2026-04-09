@@ -931,54 +931,80 @@
 
         <h1 class="text-3xl font-bold text-main mb-6">Apps</h1>
 
+       
         <div id="app-grid" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-4">
 
-            <!-- Roblox -->
+          
             <div onclick="openApp('Roblox')" 
-                class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
+                 class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
                 <img src="https://preview.redd.it/roblox-modern-icon-made-for-mac-v0-z69olzdgmstb1.png?width=512&format=png&auto=webp&s=4dddf00582c4e0797d6d49137bdc2375ac95c13c"
-                     class="w-14 h-14 object-contain">
+                     class="w-14 h-14 object-contain" alt="Roblox">
             </div>
 
-            <!-- TikTok -->
             <div onclick="openApp('tiktok')" 
-                class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
+                 class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
                 <img src="https://tse2.mm.bing.net/th/id/OIP.VBq66J60NClWDev8SdDc6gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
-                     class="w-14 h-14 object-contain">
+                     class="w-14 h-14 object-contain" alt="TikTok">
             </div>
 
-            <!-- YouTube -->
             <div onclick="openApp('youtube')" 
-                class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
+                 class="bg-secondary border border-accent rounded-xl p-3 aspect-square flex items-center justify-center cursor-pointer hover:scale-105 transition-all">
                 <img src="https://www.freepnglogos.com/uploads/512x512-logo/512x512-transparent-logo-youtube-icon-transparent-youtube-images-vector-1.png"
-                     class="w-14 h-14 object-contain">
+                      class="w-14 h-14 object-contain" alt="YouTube">
+             </div>
+
+        </div>
+
+      
+        <div id="app-player" style="display:none;" class="fixed inset-0 bg-black z-50 flex flex-col">
+
+            
+            <div class="flex items-center justify-between p-4 bg-primary border-b border-accent">
+                <button onclick="closeApp()" class="text-main font-bold">← Back</button>
+                <span id="app-title" class="text-main font-semibold">App</span>
+                <div></div>
             </div>
+
+          
+            <iframe id="app-frame"
+                class="w-full h-full border-none"
+                allowfullscreen>
+            </iframe>
 
         </div>
 
     </div>
-</section>
 
+    
+    <script>
+        function openApp(app) {
+            const frame = document.getElementById('app-frame');
+            const player = document.getElementById('app-player');
+            const title = document.getElementById('app-title');
 
-<script>
-function openApp(app) {
+            if (app === 'Roblox') {
+                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=bm93Z2cuZnVu";
+                title.textContent = "Roblox";
+            }
 
-    if (app === 'Roblox') {
-        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=bm93Z2cuZnVu", "_blank");
-    }
+            if (app === 'tiktok') {
+                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D";
+                title.textContent = "TikTok";
+            }
 
-    if (app === 'tiktok') {
-        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly93d3cudGlrdG9rLmNvbQ%3D%3D", "_blank");
-    }
+            if (app === 'youtube') {
+                frame.src = "https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly95b3V0dWJlLmNvbQ%3D%3D&v=%221%22";
+                 title.textContent = "YouTube";
+            }
 
-    if (app === 'youtube') {
-        window.open("https://d2w1kmawdyj1d6.cloudfront.net/search?query=aHR0cHM6Ly95b3V0dWJlLmNvbQ%3D%3D&v=%221%22", "_blank");
-    }
+            player.style.display = "flex";
+        }
 
-}
-</script>
-
-        
+        function closeApp() {
+            document.getElementById('app-frame').src = "";
+            document.getElementById('app-player').style.display = "none";
+        }
+    </script>
 
 </section>
 
@@ -2340,9 +2366,11 @@ function openApp(app) {
         }
 
         function renderBrowser() {
-        const url = 'https://d2w1kmawdyj1d6.cloudfront.net';
-       window.open(url, '_blank');
-  }
+            const iframe = document.getElementById('browser-iframe');
+            const url = 'https://d2w1kmawdyj1d6.cloudfront.net';
+            if (iframe.src !== url) {
+                iframe.src = url;
+            }
         }
 
         // 
