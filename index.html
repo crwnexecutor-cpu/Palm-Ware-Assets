@@ -255,10 +255,10 @@
                         <i data-lucide="link" class="w-5 h-5"></i>
                         <span>Open Unblockers</span>
                     </a>
-                    <a href="#/browser" class="flex items-center gap-3 px-8 py-4 bg-accent hover:bg-zinc-700 border border-accent rounded-xl text-main font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg">
+                     <button type="button" onclick="renderBrowser()" class="flex items-center gap-3 px-8 py-4 bg-accent hover:bg-zinc-700 border border-accent rounded-xl text-main font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg">
                         <i data-lucide="globe" class="w-5 h-5"></i>
                         <span>Open Browser</span>
-                    </a>
+                    </button>
                     <a href="#/apps" class="flex items-center gap-3 px-8 py-4 bg-secondary hover:bg-accent border border-accent rounded-xl text-main font-semibold transition-all hover:scale-105 active:scale-95">
                         <i data-lucide="grid-2x2" class="w-5 h-5"></i>
                         <span>Apps</span>
@@ -914,19 +914,8 @@
             </div>
         </section>
 
-        
-        <section id="view-browser" class="view h-screen w-screen overflow-hidden relative bg-black">
-            <div class="absolute top-4 left-4 z-50">
-                <a href="#/" class="flex items-center gap-2 px-4 py-2 bg-black/50 hover:bg-black backdrop-blur-md border border-accent text-main rounded-lg transition-all active:scale-95 shadow-xl group">
-                    <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
-                    <span class="text-sm font-bold">Back to Home</span>
-                </a>
-            </div>
-            <iframe id="browser-iframe" src="" class="w-full h-full border-none" allowfullscreen></iframe>
-        </section>
-
       
-<section id="view-apps" class="view p-8">
+   <section id="view-apps" class="view p-8">
     <div class="max-w-6xl mx-auto w-full py-12">
 
         <h1 class="text-3xl font-bold text-main mb-6">Apps</h1>
@@ -1932,8 +1921,8 @@ function openApp(app) {
             { name: 'attelloblue', role: 'Frontend Developer' },
             { name: 'arongood3d', role: 'Backend Developer' },
             { name: 'srtaco_01', role: 'Backend Developer' },
-            { name: 'curlyheadmicheal', role: 'Moderator' },
-            { name: 'thegodkat', role: 'Helper' }
+            { name: 'curlyheadmicheal', role: 'Head Moderator' },
+            { name: 'thegodkat', role: 'Head Staff' }
         ];
 
         // 
@@ -2052,10 +2041,10 @@ function openApp(app) {
                 views.play.classList.add('active');
                 header.style.display = 'none'; // Hide header in play view for full screen feel
                 renderPlay(param);
-            } else if (route === 'browser') {
-                views.browser.classList.add('active');
+            } else if (route === '') {
+                views..classList.add('active');
                 header.style.display = 'none';
-                renderBrowser();
+                render();
             } else if (route === 'apps') {
                 views.apps.classList.add('active');
             } else {
@@ -2255,7 +2244,7 @@ function openApp(app) {
             const grid = document.getElementById('games-grid');
             const settings = getSettings();
             const query = document.getElementById('game-search').value.toLowerCase();
-            const allGames = [...GAMES].filter(g => g.id !== 'browser' && g.title.toLowerCase().includes(query));
+            const allGames = [...GAMES].filter(g => g.id !== '' && g.title.toLowerCase().includes(query));
             
             if (allGames.length === 0) {
                 grid.innerHTML = `
@@ -2332,13 +2321,10 @@ function openApp(app) {
         }
 
         function renderBrowser() {
-            const iframe = document.getElementById('browser-iframe');
-            const url = 'https://d2w1kmawdyj1d6.cloudfront.net';
-            if (iframe.src !== url) {
-                iframe.src = url;
-            }
-        }
-
+           const url = 'https://d2y3e3ys31ft3w.cloudfront.net/';
+           window.open(url, '_blank');
+           }
+         
         // 
 
         function loadSettings() {
